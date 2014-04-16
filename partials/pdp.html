@@ -1,0 +1,37 @@
+<img src="images/busy-indicator.gif" ng-if="busy" />
+<div ng-if="! busy">
+  <h2>{{ listing.name }}</h2>
+  <p>
+    {{ listing.adr }}
+    <br />
+    {{ listing.cty }}, {{ listing.st }} {{ listing.zip }}
+  </p>
+  <p>
+    <strong>Price:</strong> {{ listing.prices }}
+    <strong>Bedrooms:</strong> {{ listing.beds }}
+    <strong>Bathrooms:</strong> {{ listing.baths }}
+  </p>
+  <p>{{ listing.desc }}</p>
+  <strong>Floorplans</strong>
+  <table border="1">
+    <tr>
+      <th>Plan</th>
+      <th>Beds</th>
+      <th>Baths</th>
+      <th>Sqft</th>
+      <th>Price</th>
+    </tr>
+    <tr ng-repeat="unit in listing.units">
+      <td>{{unit.plan}}</td>
+      <td>{{unit.beds}}</td>
+      <td>{{unit.bath}}</td>
+      <td>{{unit.sqft}}</td>
+      <td>{{unit.price}}</td>
+    </tr>
+  </table>
+  <br />
+  <br />
+  <span ng-repeat="photo in listing.photos">
+    <img src="http://image1.apartmentguide.com/{{photo.url}}" width="168" height="144" />
+  </span>
+</div>

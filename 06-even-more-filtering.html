@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <title>Angular Demo</title>
+  </head>
+  <body>
+    <h1>Even More Filtering</h1>
+    filter: <input ng-model="filterText" />
+    <div ng-init="items=[
+      { name: 'Pulp Fiction', director: 'Tarantino'},
+      { name: 'Jackie Brown', director: 'Tarantino'},
+      { name: 'Shining, The', director: 'Kubrick'},
+      { name: '2001', director: 'Kubrick'},
+      { name: 'Full Metal Jacket', director: 'Kubrick'},
+    ]">
+      <ul>
+        <li ng-repeat="item in items | filter:filterText | orderBy:'name'">
+          {{ item.name }} ({{ item.director }})
+        </li>
+      </ul>
+    </div>
+    <script src="vendor/angular.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <title>Angular Demo</title>
+  </head>
+  <body>
+    <h1>Hello Controller and $scope</h1>
+    filter: <input ng-model="filterText" />
+    <div ng-controller="SimpleController">
+      <ul>
+        <li ng-repeat="item in items | filter:filterText | orderBy:'name'">
+          {{ item.name }} ({{ item.director }})
+        </li>
+      </ul>
+    </div>
+<script src="vendor/angular.min.js"></script>
+<script>
+
+function SimpleController($scope) {
+  $scope.items = [
+    { name: 'Pulp Fiction', director: 'Tarantino'},
+    { name: 'Jackie Brown', director: 'Tarantino'},
+    { name: 'Shining, The', director: 'Kubrick'},
+    { name: '2001', director: 'Kubrick'},
+    { name: 'Full Metal Jacket', director: 'Kubrick'},
+  ];
+}
+</script>
+  </body>
+</html>

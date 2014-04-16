@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <title>Angular Demo</title>
+  </head>
+  <body>
+    <h1>Hello Repeat Directive</h1>
+    <div ng-init="items=['apple', 'banana', 'cherry', 'doughnut']">
+      <ul>
+        <li ng-repeat="item in items">
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+    <script src="vendor/angular.min.js"></script>
+  </body>
+</html>

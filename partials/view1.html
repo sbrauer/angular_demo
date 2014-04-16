@@ -1,0 +1,19 @@
+filter: <input ng-model="filterText" />
+<ul>
+  <li ng-repeat="film in films | filter:filterText | orderBy:'name'">
+    {{ film.name }} ({{ film.director }})
+  </li>
+</ul>
+
+<h2>Add new film</h2>
+Name:<br />
+<input type="text" ng-model="newFilm.name" />
+<br />
+Director:<br />
+<input type="text" ng-model="newFilm.director" />
+<br />
+<button ng-click="addFilm()">Add</button>
+
+<br />
+<br />
+<a href="#/view2">view2</a>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+  <head>
+    <title>Angular Demo</title>
+  </head>
+  <body>
+    <h1>Hello Module</h1>
+    filter: <input ng-model="filterText" />
+    <div ng-controller="SimpleController">
+      <ul>
+        <li ng-repeat="item in items | filter:filterText | orderBy:'name'">
+          {{ item.name }} ({{ item.director }})
+        </li>
+      </ul>
+    </div>
+
+<script src="vendor/angular.min.js"></script>
+<script>
+// Modules are containers/namespaces for controllers, views, etc.
+// Create a module with a given name (for ng-app directive)
+// 2nd arg is list of dependencies; may contain names of other modules
+// which should be loaded at runtime (sorta like requirejs).
+var demoApp = angular.module('demoApp', []);
+
+demoApp.controller('SimpleController', function ($scope) {
+  $scope.items = [
+    { name: 'Pulp Fiction', director: 'Tarantino'},
+    { name: 'Jackie Brown', director: 'Tarantino'},
+    { name: 'Shining, The', director: 'Kubrick'},
+    { name: '2001', director: 'Kubrick'},
+    { name: 'Full Metal Jacket', director: 'Kubrick'},
+  ];
+});
+</script>
+  </body>
+</html>

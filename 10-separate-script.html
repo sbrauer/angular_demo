@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+  <head>
+    <title>Angular Demo</title>
+  </head>
+  <body>
+    <h1>Finally Move Inline JS Out</h1>
+    filter: <input ng-model="filterText" />
+    <div ng-controller="SimpleController">
+      <ul>
+        <li ng-repeat="item in items | filter:filterText | orderBy:'name'">
+          {{ item.name }} ({{ item.director }})
+        </li>
+      </ul>
+    </div>
+
+<script src="vendor/angular.min.js"></script>
+<script src="10.js"></script>
+  </body>
+</html>

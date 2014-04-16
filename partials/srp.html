@@ -1,0 +1,23 @@
+<p>
+Zip: <input ng-model="zip" size="5" maxlength="5" ng-change="zipChanged()" />
+</p>
+
+<img src="images/busy-indicator.gif" ng-if="busy" />
+
+<div ng-if="result">
+  <p>
+  Total matches: {{ result.total_records }}
+  </p>
+
+  <ul>
+    <li ng-repeat="listing in result.listings">
+    <a href="#/pdp/{{ listing.id }}"><strong>{{ listing.name }}</strong></a>
+      <br />
+      {{ listing.adr }}
+      <br />
+      {{ listing.cty }}, {{ listing.st }} {{ listing.zip }}
+      <br />
+      {{ listing.prices }} | {{ listing.beds }} beds
+    </li>
+  </ul>
+</div>
